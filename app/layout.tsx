@@ -9,6 +9,7 @@ import { AuthProvider } from "./context/AuthContext";
 
 import { CartProvider } from "./context/CartContext";
 import LoadingScreen from "./components/LoadingScreen";
+import ScrollToTop from "./components/ScrollToTop";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -77,6 +78,7 @@ export default function RootLayout({
                 <ProductsProvider>
                   <CartProvider>
                     {children}
+                    <ScrollToTop />
                   </CartProvider>
                 </ProductsProvider>
               </CategoriesProvider>
