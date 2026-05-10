@@ -17,7 +17,7 @@ export default function Authlayout({ children }: Props) {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
-                className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+                className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16"
             >
                 {children}
             </motion.main>

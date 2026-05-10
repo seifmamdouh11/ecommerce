@@ -56,7 +56,6 @@ html.dark {
 }
 
 html, body {
-  overflow-x: clip;
   width: 100%;
 }
 
