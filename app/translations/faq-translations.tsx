@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export const FaqTranslations: Record<string, any> = {
     en: {
         title: "Frequently Asked Questions",

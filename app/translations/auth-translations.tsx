@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export const AuthTranslations: Record<string, any> = {
     en: {
         loginTitle: "Welcome Back",

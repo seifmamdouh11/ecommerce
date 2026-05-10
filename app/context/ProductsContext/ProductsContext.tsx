@@ -3,7 +3,7 @@ import api from "@/app/libs/api";
 import { Product, ProductsContextType, Props } from "@/app/types/types";
 import React from "react";
 
-const ProductsContext = React.createContext<ProductsContextType>(null as any);
+const ProductsContext = React.createContext<ProductsContextType>(null as unknown as ProductsContextType);
 
 export default function ProductsProvider({ children }: Props) {
     const [products, setProducts] = React.useState<Product[]>([]);

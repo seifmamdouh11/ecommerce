@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export const AboutTranslations: Record<string, any> = {
     en: {
         title: "About Our Store",

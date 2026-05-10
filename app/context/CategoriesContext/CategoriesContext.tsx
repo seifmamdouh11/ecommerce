@@ -2,7 +2,7 @@
 import api from "@/app/libs/api";
 import { CategoriesContextType, Props, Category } from "@/app/types/types";
 import React from "react";
-const CategoriesContext = React.createContext<CategoriesContextType>(null as any);
+const CategoriesContext = React.createContext<CategoriesContextType>(null as unknown as CategoriesContextType);
 
 export default function CategoriesProvider({ children }: Props) {
     const [categories, setCategories] = React.useState<Category[]>([]);
