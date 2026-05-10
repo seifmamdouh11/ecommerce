@@ -33,7 +33,7 @@ export default function AboutPage() {
 
     return (
         <div className="relative min-h-screen bg-background text-foreground">
-            <motion.div 
+            <motion.div
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"
@@ -55,7 +55,7 @@ export default function AboutPage() {
                         { title: t.missionTitle, desc: t.missionDesc, icon: "🎯" },
                         { title: t.visionTitle, desc: t.visionDesc, icon: "👁️" }
                     ].map((card, idx) => (
-                        <motion.div 
+                        <motion.div
                             key={idx}
                             variants={itemVariants}
                             whileHover={{ y: -5 }}
@@ -71,13 +71,13 @@ export default function AboutPage() {
                 {/* ── Our Values (Timeline Design) ── */}
                 <motion.div variants={itemVariants} className="mb-40 relative">
                     <h2 className="text-4xl font-bold text-center mb-20">{t.valuesTitle}</h2>
-                    
+
                     {/* Timeline Vertical Line */}
                     <div className="absolute left-1/2 top-[120px] bottom-0 w-px bg-border hidden md:block" />
 
                     <div className="space-y-12 relative">
                         {t.values.map((value: string, idx: number) => (
-                            <motion.div 
+                            <motion.div
                                 key={idx}
                                 initial={{ opacity: 0, x: idx % 2 === 0 ? -50 : 50 }}
                                 whileInView={{ opacity: 1, x: 0 }}
@@ -109,10 +109,10 @@ export default function AboutPage() {
                 <motion.div variants={itemVariants} className="mb-40 text-center">
                     <h2 className="text-4xl font-bold mb-6">{t.teamTitle}</h2>
                     <p className="text-muted mb-16 max-w-xl mx-auto">{t.teamDesc}</p>
-                    
+
                     <div className="flex flex-wrap justify-center gap-12">
                         {t.team.map((member: any, idx: number) => (
-                            <motion.div 
+                            <motion.div
                                 key={idx}
                                 variants={itemVariants}
                                 whileHover={{ y: -10 }}
@@ -120,8 +120,8 @@ export default function AboutPage() {
                             >
                                 <div className="relative h-32 w-32 rounded-full overflow-hidden border-2 border-border p-1 mb-6 transition-colors group-hover:border-primary">
                                     <div className="h-full w-full rounded-full overflow-hidden bg-surface-alt">
-                                        <img 
-                                            src={member.image} 
+                                        <img
+                                            src={member.image}
                                             alt={member.name}
                                             className="w-full h-full object-cover"
                                         />
@@ -129,7 +129,7 @@ export default function AboutPage() {
                                 </div>
                                 <h3 className="text-lg font-bold leading-tight">{member.name}</h3>
                                 <p className="text-xs font-semibold text-muted uppercase tracking-wider mt-1">{member.role}</p>
-                                
+
                                 <div className="flex gap-3 mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
                                     <FiTwitter className="w-4 h-4 text-muted hover:text-primary cursor-pointer" />
                                     <FiLinkedin className="w-4 h-4 text-muted hover:text-primary cursor-pointer" />
@@ -140,14 +140,14 @@ export default function AboutPage() {
                 </motion.div>
 
                 {/* ── Simple CTA ── */}
-                <motion.div 
+                <motion.div
                     variants={itemVariants}
                     className="rounded-[3rem] bg-surface border border-border p-12 lg:p-20 text-center"
                 >
                     <h2 className="text-3xl lg:text-5xl font-bold mb-8 tracking-tight">
                         {lang === 'ar' ? 'كن جزءاً من رحلتنا' : 'Join our journey.'}
                     </h2>
-                    <motion.button 
+                    <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         className="inline-flex items-center gap-3 bg-primary text-white px-10 py-4 rounded-2xl text-lg font-bold shadow-lg shadow-primary/20 transition-all"
