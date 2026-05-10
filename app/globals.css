@@ -1,26 +1,87 @@
 @import "tailwindcss";
 
+/* ── Light theme (default) ── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #EDF2F6;
+  --foreground: #333333;
+  --primary: #FF5656;
+  --secondary: #6A7EFC;
+
+  --surface: #FFFFFF;
+  --surface-alt: #F4F6F9;
+  --surface-hover: #EBEEF3;
+
+  --muted: #6B7280;
+  --muted-subtle: #9CA3AF;
+
+  --border: rgba(0, 0, 0, 0.08);
+  --border-strong: rgba(0, 0, 0, 0.16);
 }
 
+/* ── Dark theme — set via html.dark by useTheme ── */
+html.dark {
+  --background: #111318;
+  --foreground: #E8ECF0;
+
+  --surface: #1C2028;
+  --surface-alt: #252B35;
+  --surface-hover: #2E3443;
+
+  --muted: #9CA3AF;
+  --muted-subtle: #6B7280;
+
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+}
+
+/* ── Expose all tokens as Tailwind utilities ── */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+
+  --color-surface: var(--surface);
+  --color-surface-alt: var(--surface-alt);
+  --color-surface-hover: var(--surface-hover);
+
+  --color-muted: var(--muted);
+  --color-muted-subtle: var(--muted-subtle);
+
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  /* Only transition background and color for smooth theme switching */
+  /* transition: background-color 0.4s ease, color 0.4s ease; */
+}
+
+/* Add a global transition class for theme-aware elements without using wildcard * */
+.theme-aware {
+  transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease;
+}
+
+.view-all-categories-link::after {
+  position: absolute;
+  content: '';
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  height: 2px;
+  background-color: var(--foreground);
+  z-index: -1;
+  transition: width 0.3s ease;
+}
+
+.view-all-categories-link:hover::after {
+  width: 100%;
 }
