@@ -97,7 +97,7 @@ export default function LoginPage() {
                     <p className="text-muted">{t.loginSubtitle}</p>
                 </div>
 
-                <div className="bg-surface border border-border rounded-[2.5rem] p-10 shadow-xl">
+                <div className="bg-surface border border-border rounded-[2.5rem] p-6 sm:p-10 shadow-xl">
                     <form onSubmit={handleSubmit} className="space-y-6">
                         <div>
                             <label className="block text-xs font-black uppercase tracking-widest text-muted mb-3">{t.email}</label>

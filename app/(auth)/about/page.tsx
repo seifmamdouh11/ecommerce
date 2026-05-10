@@ -86,7 +86,7 @@ export default function AboutPage() {
                                 className={`flex flex-col md:flex-row items-center gap-8 ${idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
                             >
                                 {/* Content Side */}
-                                <div className={`flex-1 w-full ${idx % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
+                                <div className={`flex-1 w-full text-center ${idx % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
                                     <div className="p-8 rounded-[2rem] bg-surface border border-border shadow-sm hover:border-primary transition-colors group">
                                         <span className="text-4xl font-black text-primary/10 group-hover:text-primary transition-colors block mb-2">0{idx + 1}</span>
                                         <h3 className="text-2xl font-extrabold">{value}</h3>

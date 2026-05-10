@@ -51,7 +51,7 @@ export default function ProductFilters() {
                 </div>
 
                 {/* Price Range */}
-                <div className="w-[260px] shrink-0">
+                <div className="w-full md:w-[260px] shrink-0">
                     <p className="mb-2 text-[11px] font-bold uppercase tracking-widest text-muted-subtle">
                         {t.priceRange}{" "}
                         <span className="text-xs font-semibold text-primary">

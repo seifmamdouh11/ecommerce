@@ -40,7 +40,7 @@ export default function Footer() {
                 viewport={{ once: true }}
                 className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8"
             >
-                <div className="grid grid-cols-1 gap-12 lg:grid-cols-4">
+                <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
                     {/* Brand & Description */}
                     <motion.div variants={itemVariants} className="lg:col-span-1">
                         <Link href="/" className="flex items-center gap-2.5 shrink-0 group mb-6">

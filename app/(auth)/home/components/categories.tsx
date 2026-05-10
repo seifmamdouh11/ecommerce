@@ -78,7 +78,7 @@ export default function Categories() {
                     >
                         <Link
                             href={`/categories/${category.id}`}
-                            className="group relative flex flex-col items-center justify-between overflow-hidden p-8 rounded-2xl bg-surface border border-border h-full"
+                            className="group relative flex flex-col items-center justify-between overflow-hidden p-5 md:p-8 rounded-2xl bg-surface border border-border h-full"
                         >
                             <motion.div
                                 whileHover={{ y: -5 }}

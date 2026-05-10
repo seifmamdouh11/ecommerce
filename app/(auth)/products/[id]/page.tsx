@@ -207,8 +207,8 @@ export default function ProductDetailPage() {
 
                         {/* Actions */}
                         <div className="space-y-4">
-                            <div className="flex gap-4">
-                                <div className="flex items-center border border-border rounded-2xl bg-surface-alt px-4">
+                            <div className="flex flex-col sm:flex-row gap-4">
+                                <div className="flex items-center justify-between border border-border rounded-2xl bg-surface-alt px-6 py-1">
                                     <button 
                                         onClick={() => setQuantity(Math.max(1, quantity - 1))}
                                         className="h-12 w-8 text-xl font-bold"
@@ -221,7 +221,7 @@ export default function ProductDetailPage() {
                                 </div>
                                 <button 
                                     onClick={() => handleAction('Add to Cart')}
-                                    className="flex-1 bg-foreground text-background font-black rounded-2xl flex items-center justify-center gap-3 hover:bg-foreground/90 transition-all"
+                                    className="flex-1 py-5 bg-foreground text-background font-black rounded-2xl flex items-center justify-center gap-3 hover:bg-foreground/90 transition-all"
                                 >
                                     <FiShoppingCart />
                                     {isRtl ? 'إضافة للسلة' : 'ADD TO CART'}

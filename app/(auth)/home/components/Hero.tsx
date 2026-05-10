@@ -78,9 +78,9 @@ export default function Hero() {
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="relative hidden lg:block"
+                        className="relative mt-12 lg:mt-0"
                     >
-                        <div className="relative w-full aspect-[4/3] max-w-[600px] mx-auto bg-primary/5 rounded-[30%_70%_70%_30%_/_30%_30%_70%_70%] shadow-[inset_0_0_40px_rgba(255,86,86,0.05)] overflow-hidden">
+                        <div className="relative w-full aspect-[4/3] max-w-[500px] lg:max-w-[600px] mx-auto bg-primary/5 rounded-[30%_70%_70%_30%_/_30%_30%_70%_70%] shadow-[inset_0_0_40px_rgba(255,86,86,0.05)] overflow-hidden">
                             <Image
                                 src="/hero-new.png"
                                 alt="Store Experience"

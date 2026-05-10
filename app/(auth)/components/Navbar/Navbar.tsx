@@ -74,7 +74,7 @@ export default function Navbar() {
                     {/* ── Right Controls ── */}
                     <div className="flex items-center gap-3 shrink-0">
                         {/* Auth buttons — desktop */}
-                        <Link href="/login">
+                        <Link href="/login" className="hidden sm:block">
                             <motion.div
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
@@ -83,7 +83,7 @@ export default function Navbar() {
                                 {t["Login"]}
                             </motion.div>
                         </Link>
-                        <Link href="/register">
+                        <Link href="/register" className="hidden sm:block">
                             <motion.div
                                 whileHover={{ scale: 1.02, y: -2 }}
                                 whileTap={{ scale: 0.98 }}

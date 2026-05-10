@@ -47,7 +47,7 @@ export default function FaqPage() {
             >
                 {/* Header */}
                 <motion.div variants={itemVariants} className="text-center mb-16">
-                    <h1 className="text-5xl lg:text-7xl font-black text-foreground mb-6 tracking-tighter leading-none">
+                    <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-foreground mb-6 tracking-tighter leading-none">
                         {t.title}
                     </h1>
                     <p className="text-xl text-muted max-w-2xl mx-auto">
@@ -144,7 +144,7 @@ export default function FaqPage() {
                 {/* Footer Help Card */}
                 <motion.div 
                     variants={itemVariants}
-                    className="mt-20 p-10 lg:p-16 rounded-[3rem] bg-foreground text-background text-center relative overflow-hidden"
+                    className="mt-20 p-8 sm:p-10 lg:p-16 rounded-[3rem] bg-foreground text-background text-center relative overflow-hidden"
                 >
                     <div className="relative z-10">
                         <h2 className="text-3xl lg:text-4xl font-black mb-6 tracking-tight">
