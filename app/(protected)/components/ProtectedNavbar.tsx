@@ -8,7 +8,8 @@ import { useCart } from '@/app/context/CartContext';
 import { useTheme } from '@/app/hooks/useTheme';
 import { useLang } from '@/app/hooks/useLang';
 import { NavbarTranslations } from '@/app/translations/main-translations';
-import { HiSun, HiMoon, HiX, HiMenuAlt3 } from 'react-icons/hi2';
+import { HiSun, HiMoon } from 'react-icons/hi2';
+import { HiX, HiMenuAlt3 } from 'react-icons/hi';
 import { IoEarth } from 'react-icons/io5';
 import { AnimatePresence } from 'framer-motion';
 
