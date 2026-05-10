@@ -41,7 +41,7 @@ export default function ProtectedNavbar() {
                 <div className="flex h-16 items-center justify-between gap-8">
                     
                     {/* Logo */}
-                    <Link href="/dashboard">
+                    <Link href="/">
                         <motion.div 
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
@@ -55,7 +55,7 @@ export default function ProtectedNavbar() {
                                 </svg>
                             </span>
                             <span className="text-[17px] font-bold tracking-tight text-foreground hidden sm:block">
-                                POLT-<span className="text-primary">DASHBOARD</span>
+                                POLT-<span className="text-primary">STORE</span>
                             </span>
                         </motion.div>
                     </Link>
