@@ -1,5 +1,5 @@
 "use client"
-import { CategoriesContext } from '@/app/context/CategoriesContext/CategoriesContext.tsx';
+import { CategoriesContext } from '@/app/context/CategoriesContext/CategoriesContext';
 import { useLang } from '@/app/hooks/useLang';
 import { HomeTranslations } from '@/app/translations/home-translations';
 import { CategoriesContextType, Category } from '@/app/types/types';

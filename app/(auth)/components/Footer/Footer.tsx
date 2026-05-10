@@ -5,7 +5,7 @@ import { NavbarTranslations } from '@/app/translations/main-translations';
 import Link from 'next/link';
 import React from 'react';
 import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin } from 'react-icons/fa';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 
 export default function Footer() {
     const { lang } = useLang();
@@ -13,7 +13,7 @@ export default function Footer() {
     const navT = NavbarTranslations[lang];
     const isRtl = lang === "ar";
     
-    const containerVariants = {
+    const containerVariants: Variants = {
         hidden: { opacity: 0, y: 20 },
         visible: {
             opacity: 1,
@@ -26,7 +26,7 @@ export default function Footer() {
         }
     };
 
-    const itemVariants = {
+    const itemVariants: Variants = {
         hidden: { opacity: 0, y: 10 },
         visible: { opacity: 1, y: 0 }
     };
@@ -52,7 +52,7 @@ export default function Footer() {
                                 </svg>
                             </span>
                             <span className="text-[17px] font-bold tracking-tight text-foreground">
-                                POLT-<span className="text-primary">-STORE</span>
+                                POLT-<span className="text-primary">STORE</span>
                             </span>
                         </Link>
                         <p className="text-sm text-muted leading-relaxed max-w-xs">

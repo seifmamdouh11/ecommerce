@@ -23,6 +23,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: {
     default: "POLT-STORE | Premium Fashion & Electronics",
+    template: "%s | POLT-STORE"
   },
   description: "Discover a curated collection of premium fashion and cutting-edge electronics at POLT-STORE. Experience seamless shopping with bi-lingual support and global shipping.",
   keywords: ["e-commerce", "fashion", "electronics", "premium store", "online shopping", "POLT-STORE"],
