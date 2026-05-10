@@ -8,7 +8,9 @@ import { useCart } from '@/app/context/CartContext';
 import { useTheme } from '@/app/hooks/useTheme';
 import { useLang } from '@/app/hooks/useLang';
 import { NavbarTranslations } from '@/app/translations/main-translations';
-import { HiSun, HiMoon } from 'react-icons/hi2';
+import { HiSun, HiMoon, HiX, HiMenuAlt3 } from 'react-icons/hi2';
+import { IoEarth } from 'react-icons/io5';
+import { AnimatePresence } from 'framer-motion';
 
 const NAV_KEYS = ["Home", "About", "Categories", "Faq"] as const;
 const NAV_PATHS: Record<string, string> = {
@@ -22,8 +24,10 @@ export default function ProtectedNavbar() {
     const { user, logout } = useAuth();
     const { totalItems } = useCart();
     const { theme, toggleTheme } = useTheme();
-    const { lang } = useLang();
+    const { lang, toggleLanguage } = useLang();
     const t = NavbarTranslations[lang];
+    const isRtl = lang === "ar";
+    const [mobileOpen, setMobileOpen] = React.useState(false);
 
     return (
         <motion.header 
@@ -100,13 +104,24 @@ export default function ProtectedNavbar() {
                             {theme === "dark" ? <HiSun className="size-5 text-yellow-400" /> : <HiMoon className="size-5" />}
                         </motion.button>
 
+                        {/* Language Toggle */}
+                        <motion.button
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            onClick={toggleLanguage}
+                            className="hidden sm:flex items-center gap-1.5 rounded-xl border border-border px-3 py-2 text-xs font-bold text-muted transition-all duration-150 hover:border-secondary/40 hover:text-secondary hover:bg-secondary/5"
+                        >
+                            <IoEarth className="size-4" />
+                            <span>{isRtl ? "EN" : "ع"}</span>
+                        </motion.button>
+
                         {/* User Profile */}
-                        <div className="flex items-center gap-3 pl-4 border-l border-border">
+                        <div className="hidden md:flex items-center gap-3 pl-4 border-l border-border">
                             <Link href="/profile">
                                 <motion.div 
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
-                                    className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-surface-alt border border-border cursor-pointer hover:border-primary/30 transition-colors"
+                                    className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-surface-alt border border-border cursor-pointer hover:border-primary/30 transition-colors"
                                 >
                                     <div className="h-7 w-7 rounded-full bg-primary/20 text-primary flex items-center justify-center">
                                         <FiUser size={14} />
@@ -124,9 +139,93 @@ export default function ProtectedNavbar() {
                                 <FiLogOut size={18} />
                             </motion.button>
                         </div>
+
+                        {/* Mobile hamburger */}
+                        <button
+                            className="flex md:hidden items-center justify-center h-10 w-10 rounded-xl border border-border text-muted transition-colors hover:bg-surface-alt"
+                            onClick={() => setMobileOpen((v) => !v)}
+                            aria-label="Toggle menu"
+                        >
+                            <AnimatePresence mode="wait">
+                                <motion.div
+                                    key={mobileOpen ? "close" : "open"}
+                                    initial={{ opacity: 0, rotate: -90 }}
+                                    animate={{ opacity: 1, rotate: 0 }}
+                                    exit={{ opacity: 0, rotate: 90 }}
+                                    transition={{ duration: 0.2 }}
+                                >
+                                    {mobileOpen ? <HiX className="size-6" /> : <HiMenuAlt3 className="size-6" />}
+                                </motion.div>
+                            </AnimatePresence>
+                        </button>
                     </div>
                 </div>
             </div>
+
+            {/* Mobile Menu */}
+            <AnimatePresence>
+                {mobileOpen && (
+                    <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className="md:hidden overflow-hidden border-t border-border bg-surface"
+                    >
+                        <nav className="flex flex-col gap-1 px-4 py-3">
+                            {/* Profile Section in Mobile Menu */}
+                            <div className="flex items-center gap-3 px-4 py-3 mb-2 rounded-2xl bg-surface-alt border border-border">
+                                <div className="h-10 w-10 rounded-full bg-primary/20 text-primary flex items-center justify-center">
+                                    <FiUser size={20} />
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                    <p className="text-sm font-bold text-foreground truncate">{user?.name}</p>
+                                    <p className="text-xs text-muted truncate">{user?.email}</p>
+                                </div>
+                            </div>
+
+                            {NAV_KEYS.map((key) => (
+                                <Link key={key} href={NAV_PATHS[key]}>
+                                    <div
+                                        onClick={() => setMobileOpen(false)}
+                                        className="rounded-xl px-4 py-3 text-sm font-medium text-muted transition-colors hover:bg-surface-alt hover:text-foreground cursor-pointer"
+                                    >
+                                        {t[key] ?? key}
+                                    </div>
+                                </Link>
+                            ))}
+
+                            <div className="mt-2 pt-3 border-t border-border flex flex-col gap-2">
+                                <Link href="/profile" className="w-full">
+                                    <div onClick={() => setMobileOpen(false)} className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-muted hover:bg-surface-alt hover:text-foreground cursor-pointer">
+                                        <FiUser size={18} />
+                                        <span>{lang === 'ar' ? 'الملف الشخصي' : 'My Profile'}</span>
+                                    </div>
+                                </Link>
+                                
+                                <button 
+                                    onClick={toggleLanguage}
+                                    className="flex items-center gap-3 w-full rounded-xl px-4 py-3 text-sm font-medium text-muted hover:bg-surface-alt hover:text-foreground"
+                                >
+                                    <IoEarth size={18} />
+                                    <span>{lang === 'ar' ? 'English' : 'العربية'}</span>
+                                </button>
+
+                                <button 
+                                    onClick={() => {
+                                        setMobileOpen(false);
+                                        logout();
+                                    }}
+                                    className="flex items-center gap-3 w-full rounded-xl px-4 py-3 text-sm font-bold text-red-500 hover:bg-red-500/5"
+                                >
+                                    <FiLogOut size={18} />
+                                    <span>{lang === 'ar' ? 'تسجيل الخروج' : 'Logout'}</span>
+                                </button>
+                            </div>
+                        </nav>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </motion.header>
     );
 }
