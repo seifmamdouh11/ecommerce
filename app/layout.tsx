@@ -21,8 +21,38 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "POLT STORE",
-  description: "Premium Fashion & Electronics Store",
+  title: {
+    default: "POLT-STORE | Premium Fashion & Electronics",
+    template: "%s | POLT-STORE"
+  },
+  description: "Discover a curated collection of premium fashion and cutting-edge electronics at POLT-STORE. Experience seamless shopping with bi-lingual support and global shipping.",
+  keywords: ["e-commerce", "fashion", "electronics", "premium store", "online shopping", "POLT-STORE"],
+  authors: [{ name: "POLT-STORE Team" }],
+  creator: "POLT-STORE",
+  publisher: "POLT-STORE",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  openGraph: {
+    title: "POLT-STORE | Premium Store",
+    description: "Shop the latest trends in fashion and tech with POLT-STORE.",
+    url: "https://polt-store.com",
+    siteName: "POLT-STORE",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "POLT-STORE | Premium Store",
+    description: "Shop the latest trends in fashion and tech with POLT-STORE.",
+    creator: "@poltstore",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({

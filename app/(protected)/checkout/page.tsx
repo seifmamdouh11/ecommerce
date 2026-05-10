@@ -12,6 +12,10 @@ export default function CheckoutPage() {
     const router = useRouter();
     const [isProcessing, setIsProcessing] = useState(false);
 
+    useEffect(() => {
+        document.title = "Checkout | POLT-STORE";
+    }, []);
+
     // If cart is empty, redirect back to cart
     useEffect(() => {
         if (cart.length === 0 && !isProcessing) {

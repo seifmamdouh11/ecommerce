@@ -8,6 +8,10 @@ import Link from 'next/link';
 export default function CartPage() {
     const { cart, removeFromCart, updateQuantity, totalPrice, clearCart } = useCart();
 
+    React.useEffect(() => {
+        document.title = "Your Cart | POLT-STORE";
+    }, []);
+
     if (cart.length === 0) {
         return (
             <div className="flex flex-col items-center justify-center py-20 text-center">

@@ -10,6 +10,10 @@ export default function AboutPage() {
     const t = AboutTranslations[lang];
     const isRtl = lang === "ar";
 
+    React.useEffect(() => {
+        document.title = isRtl ? "من نحن | POLT-STORE" : "About Us | POLT-STORE";
+    }, [isRtl]);
+
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {

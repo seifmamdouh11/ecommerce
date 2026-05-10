@@ -8,6 +8,10 @@ import Image from 'next/image';
 export default function ProfilePage() {
     const { user } = useAuth();
     const [isEditing, setIsEditing] = useState(false);
+
+    React.useEffect(() => {
+        document.title = "My Profile | POLT-STORE";
+    }, []);
     
     // Fallback/mock states for the form if user doesn't have these fields
     const [formData, setFormData] = useState({

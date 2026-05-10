@@ -59,6 +59,10 @@ export default function ProductDetailPage() {
             try {
                 const res = await api.get(`/products/${id}`);
                 setProduct(res.data);
+                // Update dynamic tab name
+                if (res.data?.title) {
+                    document.title = `${res.data.title} | POLT-STORE`;
+                }
             } catch (err) {
                 console.error("Failed to fetch product", err);
             } finally {
@@ -66,6 +70,8 @@ export default function ProductDetailPage() {
             }
         };
         if (id) fetchProduct();
+
+        // Cleanup: Reset title if needed, or leave it for next page
     }, [id]);
 
     if (loading) {
